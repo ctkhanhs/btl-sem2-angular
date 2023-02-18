@@ -1,0 +1,19 @@
+<h2>Vận chuyển/Bán lô hàng</h2>
+
+
+<form action="" method="POST" [formGroup]="consignmentFormEdit" (submit)="onSubmit()">
+
+    <input type="hidden" formControlName="id">
+    <input type="hidden" formControlName="warehouseId">
+    <input type="hidden" formControlName="status">
+    <div class="form-group">
+        <label for="">Kho</label>
+        <select formControlName="toWarehouseId" class="form-control">
+            <option [ngValue]="w.id" *ngFor="let w of warehouses">{{w.name}}</option>
+        </select>
+        <div *ngIf="submited && f['toWarehouseId'].errors">
+            <small class="help-block" *ngIf="f['toWarehouseId'].errors['required']">Vui lòng chọn danh mục</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sửa</button>
+</form>

@@ -1,0 +1,13 @@
+<h2>Thêm lô hàng</h2>
+
+
+<form action="" method="POST" [formGroup]="consignmentForm" (submit)="onSubmit()">
+    <div class="form-group">
+        <label for="">Lô hàng</label>
+        <input accept=".xlsx" type="file" (change)="onChangeFile($event)" class="form-control" formControlName="excelFile">
+        <div *ngIf="submited && f['excelFile'].errors">
+            <small class="help-block" *ngIf="f['excelFile'].errors['required']">Vui lòng chọn file</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+</form>

@@ -1,0 +1,28 @@
+<h2>
+    <span>Quản lý danh mục</span>
+</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Mã</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cat of list | paginate:{itemsPerPage:5,currentPage:p};let stt=index">
+            <td>{{stt+1}}</td>
+            <td>{{cat.name}}</td>
+            <td>{{cat.code}}</td>
+            <td>
+                <a [routerLink]="['/danh-muc/chinh-sua/',cat.id]" class="btn btn-primary btn-sm">Sửa</a>
+                <!-- <button type="button" class="btn btn-sm btn-danger" (click)="onDelete(product.id)">Xóa</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

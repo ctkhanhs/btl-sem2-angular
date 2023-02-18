@@ -1,0 +1,36 @@
+<h2>Quản lý lô hàng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Mã</th>
+            <th>Tên kho</th>
+            <th>Mã kho</th>
+            <th>Số lượng (thùng)</th>
+            <th>Giá nhập</th>
+            <th>Giá bán</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of list | paginate:{itemsPerPage:5,currentPage:p};let stt=index">
+            <td>{{stt+1}}</td>
+            <td>{{c.code}}</td>
+            <td>{{c.warehouseName}}</td>
+            <td>{{c.warehouseCode}}</td>
+            <td>{{c.quantity}}</td>
+            <td>{{c.importAmount}}</td>
+            <td>{{c.exportAmount}}</td>
+            <td>
+                <a [routerLink]="['/lo-hang/chi-tiet-lo-hang',c.id]" class="btn btn-primary btn-sm">Chi tiết</a>
+                <a [routerLink]="['/lo-hang/chinh-sua','ACTIVE',c.id,c.warehouseId]" class="btn btn-success btn-sm">Vận chuyển</a>
+                <a [routerLink]="['/lo-hang/chinh-sua','SALED',c.id,c.warehouseId]" class="btn btn-danger btn-sm">Bán</a>
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

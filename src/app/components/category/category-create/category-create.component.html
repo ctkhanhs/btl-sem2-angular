@@ -1,0 +1,21 @@
+<h2>
+    <span>Thêm danh mục</span>
+</h2>
+<form action="" method="POST" [formGroup]="categoryFormCreate" role="form" (submit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="">Tên danh mục</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Input field">
+        <div *ngIf="submited && f['name'].errors">
+            <small class="help-block" *ngIf="f['name'].errors['required']">Vui lòng nhập tên danh mục</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Mã danh mục</label>
+        <input type="text" class="form-control" formControlName="code" placeholder="Input field">
+        <div *ngIf="submited && f['code'].errors">
+            <small class="help-block" *ngIf="f['code'].errors['required']">Vui lòng nhập mã danh mục</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Thêm</button>
+</form>

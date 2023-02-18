@@ -1,0 +1,31 @@
+<h2>Chi tiết lô hàng</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Mã sản phẩm</th>
+            <th>Danh mục</th>
+            <th>Số lượng (thùng)</th>
+            <th>Số sản phẩm trong 1 thùng</th>
+            <th>Giá nhập</th>
+            <th>Giá bán</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of list | paginate:{itemsPerPage:5,currentPage:p};let stt=index">
+            <td>{{stt+1}}</td>
+            <td>{{c.productName}}</td>
+            <td>{{c.productCode}}</td>
+            <td>{{c.categoryName}}</td>
+            <td>{{c.numberOfBoxes}}</td>
+            <td>{{c.numberProductsInBox}}</td>
+            <td>{{c.importPrice}}</td>
+            <td>{{c.exportPrice}}</td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

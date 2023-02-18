@@ -1,0 +1,31 @@
+<h2>
+    <span>Quản lý kho hàng</span>
+</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Kho</th>
+            <th>Mã Kho</th>
+            <th>Địa Chỉ</th>
+            <th>Tên Đối Tác</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let wh of list | paginate:{itemsPerPage:5,currentPage:p}; let stt=index;">
+            <td>{{stt+1}}</td>
+            <td>{{wh.name}}</td>
+            <td>{{wh.code}}</td>
+            <td>{{wh.address}}</td>
+            <td>{{wh.partnerName}}</td>
+            <td>
+                <a [routerLink]="['/kho/chinh-sua/',wh.id]" class="btn btn-primary btn-sm">Sửa</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

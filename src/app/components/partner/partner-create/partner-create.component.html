@@ -1,0 +1,36 @@
+<h2>
+    <span>Thêm đối tác</span>
+</h2>
+<form action="" method="POST" [formGroup]="partnerFormCreate" role="form" (submit)="onSubmit()">
+
+    <div class="form-group">
+        <label for="">Tên Đối Tác</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Input field">
+        <div *ngIf="submited && f['name'].errors">
+            <small class="help-block" *ngIf="f['name'].errors['required']">Vui lòng nhập tên đối tác</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Mã Đối Tác</label>
+        <input type="text" class="form-control" formControlName="code" placeholder="Input field">
+        <div *ngIf="submited && f['code'].errors">
+            <small class="help-block" *ngIf="f['code'].errors['required']">Vui lòng nhập mã đối tác</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Địa chỉ</label>
+        <input type="text" class="form-control" formControlName="address" placeholder="Input field">
+        <div *ngIf="submited && f['address'].errors">
+            <small class="help-block" *ngIf="f['address'].errors['required']">Vui lòng nhập địa chỉ</small>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Số Điện Thoại</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="Input field">
+        <div *ngIf="submited && f['phone'].errors">
+            <small class="help-block" *ngIf="f['phone'].errors['required']">Vui lòng nhập số điện thoại</small>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Thêm</button>
+</form>

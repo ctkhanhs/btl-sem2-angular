@@ -1,0 +1,61 @@
+<h2>
+    <span>Sửa sản phẩm</span>
+</h2>
+
+
+<form action="" method="POST" [formGroup]="productForm" (submit)="onSubmit()">
+
+
+    <div class="form-group">
+        <label for="">Danh Mục Sản Phẩm</label>
+        <input type="hidden" formControlName="id">
+        <select formControlName="categoryId" class="form-control">
+            <option [ngValue]="cat.id" *ngFor="let cat of cats">{{cat.name}}</option>
+        </select>
+        <div *ngIf="submited && f['categoryId'].errors">
+            <small class="help-block" *ngIf="f['categoryId'].errors['required']">Vui lòng chọn danh mục</small>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="">Tên Sản Phẩm</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Input field">
+        <div *ngIf="submited && f['name'].errors">
+            <small class="help-block" *ngIf="f['name'].errors['required']">Vui lòng nhập tên sản phẩm</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Mã Sản Phẩm</label>
+        <input type="text" class="form-control" formControlName="code" placeholder="Input field">
+        <div *ngIf="submited && f['code'].errors">
+            <small class="help-block" *ngIf="f['code'].errors['required']">Vui lòng nhập mã sản phẩm</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Thương hiệu</label>
+        <input type="text" class="form-control" formControlName="brand" placeholder="Input field">
+        <div *ngIf="submited && f['brand'].errors">
+            <small class="help-block" *ngIf="f['brand'].errors['required']">Vui lòng nhập thương hiệu</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Nước SX</label>
+        <input type="text" class="form-control" formControlName="madeIn" placeholder="Input field">
+        <div *ngIf="submited && f['madeIn'].errors">
+            <small class="help-block" *ngIf="f['madeIn'].errors['required']">Vui lòng nhập thương hiệu</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="">Giá Bán</label>
+        <input type="text" class="form-control" formControlName="price" placeholder="Input field">
+        <div *ngIf="submited && f['price'].errors">
+            <small class="help-block" *ngIf="f['price'].errors['required']">Vui lòng nhập giá sản phẩmc</small>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sửa</button>
+</form>

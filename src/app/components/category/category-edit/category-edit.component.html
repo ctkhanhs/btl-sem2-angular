@@ -1,0 +1,15 @@
+<h2>
+    <span>Sửa danh mục</span>
+</h2>
+<form action="" method="POST" [formGroup]="categoryFormEdit" role="form" (submit)="onSubmit()">
+    <input type="hidden" formControlName="id">
+    <div class="form-group">
+        <label for="">Tên danh mục</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Input field">
+    </div>
+    <div class="form-group">
+        <label for="">Mã danh mục</label>
+        <input type="text" class="form-control" formControlName="code" placeholder="Input field">
+    </div>
+    <button type="submit" class="btn btn-primary">Sửa</button>
+</form>

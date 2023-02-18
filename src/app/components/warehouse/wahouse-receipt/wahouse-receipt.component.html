@@ -1,0 +1,39 @@
+<h2>
+    <span>Hóa đơn của kho</span>
+</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Mã hóa đơn</th>
+            <th>Mã lô hàng</th>
+            <th>Tên kho gửi</th>
+            <th>Địa Chỉ kho gửi</th>
+            <th>Địa Chỉ kho nhận</th>
+            <th>Địa Chỉ kho nhận</th>
+            <th>Tên Đối Tác</th>
+            <th>Loại hóa đơn</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let wh of list | paginate:{itemsPerPage:5,currentPage:p}; let stt=index;">
+            <td>{{stt+1}}</td>
+            <td>{{wh.code}}</td>
+            <td>{{wh.consignmentCode}}</td>
+            <td>{{wh.warehouseNameSent}}</td>
+            <td>{{wh.warehouseAddressSent}}</td>
+            <td>{{wh.warehouseNameReceive}}</td>
+            <td>{{wh.warehouseAddressReceive}}</td>
+            <td>{{wh.type}}</td>
+            <td>
+                <a [routerLink]="['/kho/chinh-sua/',wh.id]" class="btn btn-success btn-sm">Sửa</a>
+                <a [routerLink]="['/lo-hang/chi-tiet-lo-hang',wh.consignmentId]" class="btn btn-primary btn-sm">Chi tiết</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>

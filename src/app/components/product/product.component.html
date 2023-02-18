@@ -1,0 +1,35 @@
+<h2>
+    <span>Quản lý sản phẩm</span>
+</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Mã sản phẩm</th>
+            <th>Danh Mục</th>
+            <th>Giá</th>
+            <th>Thương hiệu</th>
+            <th>Nước sx</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of list | paginate:{itemsPerPage:5,currentPage:p}; let stt=index;">
+            <td>{{stt+1}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.code}}</td>
+            <td>{{product.categoryName}}</td>
+            <td>{{product.price|currency:"":"":"3.0"}} đ</td>
+            <td>{{product.brand}}</td>
+            <td>{{product.madeIn}}</td>
+            <td>
+                <a [routerLink]="['/san-pham/chinh-sua/',product.id]" class="btn btn-primary btn-sm">Sửa</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<div class="panel-footer">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+</div>
